@@ -232,10 +232,6 @@
 <h2 id="感谢大家对两帧站的支持！"><a href="#感谢大家对两帧站的支持！" class="headerlink" title="感谢大家对两帧站的支持！"></a>感谢大家对两帧站的支持！</h2>
     </div>
     <footer class="article-footer">
-        <a data-aos="zoom-in" href="/2026/10/03/%E7%BD%91%E7%AB%99%E5%BA%94%E6%80%A5%E9%94%99%E8%AF%AF/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2026/10/03/%E7%BD%91%E7%AB%99%E5%BA%94%E6%80%A5%E9%94%99%E8%AF%AF/" itemprop="commentCount"></span>
-          留言
-        </a>
       
       
     </footer>
@@ -259,9 +255,6 @@
       <h2 class="comment-title">说些什么吧！</h2>
       <div class="comment-selector">
         <div class="comment-selector-wrap">
-            <div class="selector-item" data-selector="valine">
-              <span>valine</span>
-            </div>
             <div class="selector-item" data-selector="giscus">
               <span>giscus</span>
             </div>
@@ -269,9 +262,6 @@
       </div>
     </div>
     <div class="comment-content">
-          <div class="comment valine-comment" data-aos="fade-up"
-            id="valine-comment">
-          </div>
           <div class="comment giscus-comment" data-aos="fade-up"
             id="giscus-comment">
           </div>
@@ -493,51 +483,8 @@
     return script;
   };
 
-  var commentConfigKeys = ["valine","giscus"];
+  var commentConfigKeys = ["giscus"];
   var commentConfig = {
-    valine: {
-      enable: true,
-      load: async () => {
-        const container = document.querySelector('.valine-comment');
-        if (!container) return;
-        if (container.style.display === 'block') return; // already loaded
-        container.style.display = 'block';
-
-        const script = loadScript(
-          'https://npm.webcache.cn/valine@1.5.1/dist/Valine.min.js',
-          'sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE+s5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn'
-        );
-        script.onload = () => {
-          var GUEST_INFO = ['nick', 'mail', 'link'];
-          var guest_info = 'nick,mail,link'.split(',').filter((item) => {
-            return GUEST_INFO.indexOf(item) > -1
-          });
-          var recordIP = JSON.parse('true');
-          var highlight = JSON.parse('true');
-          var visitor = JSON.parse('false');
-          var serverURLs = undefined;
-
-          if (window.Valine) {
-            new Valine({
-              el: '.valine-comment',
-              appId: "你的真实AppID",
-              appKey: "你的真实AppKey",
-              placeholder: "Just go go",
-              pageSize: '10',
-              avatar: 'mp',
-              lang: document.documentElement.lang || 'en',
-              recordIP: recordIP,
-              highlight: highlight,
-              visitor: visitor,
-              requiredFields: guest_info,
-              path: window.location.pathname,
-              serverURLs
-            });
-          }
-        };
-        document.head.appendChild(script);
-      }
-    },
     giscus: {
       enable: true,
       load: async () => {

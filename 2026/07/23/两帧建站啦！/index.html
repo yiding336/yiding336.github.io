@@ -240,10 +240,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">mian</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;在没有报错的时候，快乐的网站！&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;内核hexo哦&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;如果感兴趣的话也可以把这些代码复制到devc++里试试运行&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
-        <a data-aos="zoom-in" href="/2026/07/23/%E4%B8%A4%E5%B8%A7%E5%BB%BA%E7%AB%99%E5%95%A6%EF%BC%81/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2026/07/23/%E4%B8%A4%E5%B8%A7%E5%BB%BA%E7%AB%99%E5%95%A6%EF%BC%81/" itemprop="commentCount"></span>
-          留言
-        </a>
       
       
     </footer>
@@ -275,9 +271,6 @@
       <h2 class="comment-title">说些什么吧！</h2>
       <div class="comment-selector">
         <div class="comment-selector-wrap">
-            <div class="selector-item" data-selector="valine">
-              <span>valine</span>
-            </div>
             <div class="selector-item" data-selector="giscus">
               <span>giscus</span>
             </div>
@@ -285,9 +278,6 @@
       </div>
     </div>
     <div class="comment-content">
-          <div class="comment valine-comment" data-aos="fade-up"
-            id="valine-comment">
-          </div>
           <div class="comment giscus-comment" data-aos="fade-up"
             id="giscus-comment">
           </div>
@@ -509,51 +499,8 @@
     return script;
   };
 
-  var commentConfigKeys = ["valine","giscus"];
+  var commentConfigKeys = ["giscus"];
   var commentConfig = {
-    valine: {
-      enable: true,
-      load: async () => {
-        const container = document.querySelector('.valine-comment');
-        if (!container) return;
-        if (container.style.display === 'block') return; // already loaded
-        container.style.display = 'block';
-
-        const script = loadScript(
-          'https://npm.webcache.cn/valine@1.5.1/dist/Valine.min.js',
-          'sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE+s5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn'
-        );
-        script.onload = () => {
-          var GUEST_INFO = ['nick', 'mail', 'link'];
-          var guest_info = 'nick,mail,link'.split(',').filter((item) => {
-            return GUEST_INFO.indexOf(item) > -1
-          });
-          var recordIP = JSON.parse('true');
-          var highlight = JSON.parse('true');
-          var visitor = JSON.parse('false');
-          var serverURLs = undefined;
-
-          if (window.Valine) {
-            new Valine({
-              el: '.valine-comment',
-              appId: "你的真实AppID",
-              appKey: "你的真实AppKey",
-              placeholder: "Just go go",
-              pageSize: '10',
-              avatar: 'mp',
-              lang: document.documentElement.lang || 'en',
-              recordIP: recordIP,
-              highlight: highlight,
-              visitor: visitor,
-              requiredFields: guest_info,
-              path: window.location.pathname,
-              serverURLs
-            });
-          }
-        };
-        document.head.appendChild(script);
-      }
-    },
     giscus: {
       enable: true,
       load: async () => {
