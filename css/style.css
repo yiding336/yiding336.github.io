@@ -1655,8 +1655,8 @@ button {
   color: #fff;
   background-color: var(--red-1);
 }
-.giscus-comment {
-  width: auto;
+.utterances {
+  max-width: none !important;
 }
 .archives-outer-wrap {
   background: var(--color-wrap);
