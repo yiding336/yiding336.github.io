@@ -61,6 +61,21 @@
     transform: rotate(180deg) !important;
   }
 </style>
+<style>
+  /* 给播放器整体加圆角 */
+  .aplayer {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+  /* 如果歌单展开，给列表底部也加圆角 */
+  .aplayer .aplayer-list {
+    border-radius: 0 0 12px 12px !important;
+  }
+  /* 如果播放器主体单独显示，给它加圆角 */
+  .aplayer .aplayer-body {
+    border-radius: 12px 12px 0 0 !important;
+  }
+</style>
 
 <meta name="generator" content="Hexo 8.1.2"></head>
 
