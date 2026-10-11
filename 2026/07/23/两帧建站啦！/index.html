@@ -40,35 +40,25 @@
 
     <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css" integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU/voDBY5XE2lVh" crossorigin="anonymous">
     <style>
-  /* 1. 限制卡片尺寸，防止被大图撑开 */
-  .home-category-item {   /* 替换为你查到的真实卡片类名 */
-    max-height: 220px !important;
-    max-width: 380px !important;
-    margin: 10px auto !important;
-    overflow: hidden !important;
-    position: relative !important; /* 为文字叠加做准备 */
-    border-radius: 8px; /* 加一点圆角更美观 */
+  /* 移除 APlayer 在左下角的固定定位 */
+  .aplayer.aplayer-fixed {
+    left: unset !important;
+    right: 20px !important;  /* 调整为你想要的右侧距离 */
+    width: auto !important;
   }
-
-  /* 2. 让封面图片填满整个卡片 */
-  .home-category-item .category-cover {   /* 替换为你查到的真实图片类名 */
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* 保证图片铺满且不变形 */
-  }
-
-  /* 3. 将分类标题叠加到图片上层 */
-  .home-category-item .category-title {   /* 替换为你查到的真实标题类名 */
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
+  /* 调整播放器主体位置到右下角 */
+  .aplayer.aplayer-fixed .aplayer-body {
+    left: unset !important;
     right: 0 !important;
-    padding: 8px 12px !important;
-    margin: 0 !important;
-    color: #fff !important; /* 文字颜色 */
-    font-size: 1rem !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important; /* 文字阴影，防看不清 */
-    background: linear-gradient(transparent, rgba(0,0,0,0.6)) !important; /* 底部渐变遮罩 */
+    width: 400px !important;  /* 播放器展开时的宽度 */
+    max-width: calc(100% - 18px) !important;
+    padding-right: 0 !important;
+  }
+  /* 调整迷你切换按钮位置 */
+  .aplayer.aplayer-fixed .aplayer-miniswitcher {
+    right: unset !important;
+    left: -18px !important;
+    transform: rotate(180deg) !important;
   }
 </style>
 
@@ -172,6 +162,22 @@
         <div id="content" aria-label="Page content" class="sidebar-left"  >
           <aside id="sidebar" aria-label="Sidebar">
   <div class="sidebar-wrapper-container sticky">
+      <meting-js
+        theme="var(--color-link)"
+        id="17876488453"
+        server="netease"
+        type="playlist"
+        
+        fixed="false"
+        autoplay="false"
+        loop="all"
+        order="list"
+        preload="auto"
+        volume="0.7"
+        mutex="true"
+        list-folded="false"
+        lrc-type="3"
+      ></meting-js>
   <div class="sidebar-wrapper">
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
@@ -428,22 +434,6 @@
 </nav>
 
     </div>
-      <meting-js
-        theme="var(--color-link)"
-        id="17876488453"
-        server="netease"
-        type="playlist"
-        
-        fixed="true"
-        autoplay="false"
-        loop="all"
-        order="list"
-        preload="auto"
-        volume="0.7"
-        mutex="true"
-        list-folded="false"
-        lrc-type="3"
-      ></meting-js>
     
 <script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
 
